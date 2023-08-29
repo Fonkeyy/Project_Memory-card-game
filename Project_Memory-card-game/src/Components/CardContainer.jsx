@@ -6,12 +6,10 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 
 const CardContainer = ({ cardNumberToRender }) => {
-    // todo => Make sure all Cards are different
-
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
 
-    // * Fetch data to the API and set it to weaponData
+    // * Fetch data from the API and set it to weaponData
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -33,22 +31,24 @@ const CardContainer = ({ cardNumberToRender }) => {
         return Math.floor(Math.random() * (max - min)) + min;
     };
 
-    // ! See how to add to set
-    while (skinSet.length < 6) {
-        const randomNumber = getRandomInt(0, weaponData.length);
-        const randomSkin = weaponData[randomNumber];
-        console.log(randomNumber);
-        console.log(randomSkin);
-        setSkinSet((previousSkinSet) => {
-            [...previousSkinSet, randomSkin];
-        });
-    }
-    console.log(skinSet);
+    // * Randomly select skins in weaponData and set it to skinSet
+    useEffect(() => {
+        if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
+            const randomNumber = getRandomInt(0, weaponData.length);
+            const randomSkin = weaponData[randomNumber];
+            if (!skinSet.has(randomSkin)) {
+                setSkinSet((previousSkinSet) => new Set([...previousSkinSet, randomSkin]));
+            } else {
+                return;
+            }
+        }
+    }, [weaponData, skinSet, cardNumberToRender]);
 
     return (
+        // * For each skin in skinSet create a Card with the skin passed to the props
         <div id="card-container">
-            {skinSet.map((skin) => {
-                <Card skin={skin} />;
+            {Array.from(skinSet).map((skin, index) => {
+                return <Card key={index} skin={skin} />;
             })}
             ;
         </div>

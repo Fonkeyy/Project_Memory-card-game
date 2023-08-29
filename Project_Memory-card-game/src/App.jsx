@@ -9,7 +9,7 @@ import CardContainer from './Components/CardContainer';
 function App() {
     return (
         <>
-            <CardContainer />
+            <CardContainer cardNumberToRender={6} />
         </>
     );
 }
