@@ -62,8 +62,8 @@ const CardContainer = ({ cardNumberToRender }) => {
 
     return (
         <div id="card-container">
-            {Array.from(skinSet).map((skin, index) => (
-                <Card key={index} skin={skin} onClick={handleCardClick} />
+            {Array.from(skinSet).map((skin) => (
+                <Card key={skin.id} skin={skin} onClick={handleCardClick} />
             ))}
         </div>
     );
