@@ -5,17 +5,26 @@ import PropTypes from 'prop-types';
 
 // // import '../css/DropDown.css';
 
-const DropDown = ({ label, value }) => {
+const DropDown = ({ label, id, valueArr }) => {
     return (
         <>
-            <label>{label}</label> <p>{value}</p>
+            <label htmlFor={id}>{label}</label>
+            <select id={id} name={label}>
+                {valueArr.map((element) => (
+                    <option key={element} value={element}>
+                        {element}
+                    </option>
+                ))}
+                ;
+            </select>
         </>
     );
 };
 
 DropDown.propTypes = {
-    value: PropTypes.number.isRequired,
     label: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    valueArr: PropTypes.array.isRequired,
 };
 
 export default DropDown;
