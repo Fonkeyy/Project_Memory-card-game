@@ -8,6 +8,7 @@ import Card from './Card';
 const CardContainer = ({ cardNumberToRender }) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
+    // const [shuffledArr, setShuffledArr] = useState(new Set(skinSet));
 
     // * Fetch data from the API and set it to weaponData
     useEffect(() => {
@@ -27,10 +28,6 @@ const CardContainer = ({ cardNumberToRender }) => {
         fetchData();
     }, []);
 
-    const getRandomInt = (min, max) => {
-        return Math.floor(Math.random() * (max - min)) + min;
-    };
-
     // * Randomly select skins in weaponData and set it to skinSet
     useEffect(() => {
         if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
@@ -44,13 +41,30 @@ const CardContainer = ({ cardNumberToRender }) => {
         }
     }, [weaponData, skinSet, cardNumberToRender]);
 
+    const handleCardClick = () => {
+        const newShuffledArr = shuffleArr(skinSet);
+        setSkinSet(newShuffledArr);
+    };
+
+    // * Helpers functions
+    const getRandomInt = (min, max) => {
+        return Math.floor(Math.random() * (max - min)) + min;
+    };
+
+    const shuffleArr = (arr) => {
+        const shuffledArray = [...arr];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+    };
+
     return (
-        // * For each skin in skinSet create a Card with the skin passed to the props
         <div id="card-container">
-            {Array.from(skinSet).map((skin, index) => {
-                return <Card key={index} skin={skin} />;
-            })}
-            ;
+            {Array.from(skinSet).map((skin, index) => (
+                <Card key={index} skin={skin} onClick={handleCardClick} />
+            ))}
         </div>
     );
 };
