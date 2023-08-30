@@ -1,0 +1,7 @@
+h1 {
+    font-family: cs-regular;
+    color: var(--orange);
+    text-align: center;
+    margin: 2rem;
+    font-size: 2.5rem;
+}

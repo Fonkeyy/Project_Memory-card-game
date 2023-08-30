@@ -4,11 +4,11 @@ import React, { useState, useCallback } from 'react';
 import './App.css';
 import './css/Card-container.css';
 import CardContainer from './Components/CardContainer';
-import Counter from './Components/Counter';
 import DropDownContainer from './Components/DropDownContainer';
+import ScoreContainer from './Components/ScoreContainer';
 
 // todo => Add Title
-// todo => Add choose weapon to play with
+// todo => Add Timer
 // todo => Add difficulty level (number of items displayed)
 // todo => Fix why sometime there are duplicate cards or not 6 cards
 
@@ -39,8 +39,8 @@ function App() {
 
     return (
         <>
-            <Counter label="Score" value={score} />
-            <Counter label="Best Score" value={bestScore} />
+            <h1>Memory Counter Skins</h1>
+            <ScoreContainer score={score} bestScore={bestScore} />
             <DropDownContainer selectedValueChange={handleSelectChange} />
             <CardContainer
                 cardNumberToRender={6}

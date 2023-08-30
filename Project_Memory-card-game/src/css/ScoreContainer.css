@@ -1,0 +1,9 @@
+.score-container {
+    text-align: right;
+}
+
+.score-counter {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
