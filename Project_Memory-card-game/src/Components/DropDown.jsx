@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 
 // // import '../css/DropDown.css';
 
-const DropDown = ({ label, id, weaponList, selectedValueChange }) => {
+const DropDown = ({ id, weaponList, selectedValueChange }) => {
     const handleSelectChange = (e) => {
         selectedValueChange(e.target.value);
     };
 
     return (
         <>
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id}></label>
             <select id={id} onChange={handleSelectChange}>
                 <option value="">{id}</option>
                 {weaponList.map((element) => (
@@ -26,7 +26,6 @@ const DropDown = ({ label, id, weaponList, selectedValueChange }) => {
 };
 
 DropDown.propTypes = {
-    label: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     weaponList: PropTypes.array.isRequired,
     selectedValueChange: PropTypes.func.isRequired,

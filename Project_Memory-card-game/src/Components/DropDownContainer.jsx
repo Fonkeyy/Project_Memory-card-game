@@ -15,28 +15,14 @@ const DropDownContainer = ({ selectedValueChange }) => {
 
     return (
         <>
-            <DropDown
-                label="Choose weapon: "
-                id="Pistols"
-                weaponList={pistolList}
-                selectedValueChange={handleSelectChange}
-            />
-            <DropDown label="" id="SMGs" weaponList={smgList} selectedValueChange={handleSelectChange} />
-            <DropDown label="" id="Rifles" weaponList={rifleList} selectedValueChange={handleSelectChange} />
-            <DropDown
-                label=""
-                id="Snipers"
-                weaponList={sniperList}
-                selectedValueChange={handleSelectChange}
-            />
-            <DropDown
-                label=""
-                id="Shotguns"
-                weaponList={shotgunList}
-                selectedValueChange={handleSelectChange}
-            />
-            <DropDown label="" id="Gloves" weaponList={glovesList} selectedValueChange={handleSelectChange} />
-            <DropDown label="" id="Knifes" weaponList={knifeList} selectedValueChange={handleSelectChange} />
+            <label>Choose weapon: </label>
+            <DropDown id="Pistols" weaponList={pistolList} selectedValueChange={handleSelectChange} />
+            <DropDown id="SMGs" weaponList={smgList} selectedValueChange={handleSelectChange} />
+            <DropDown id="Rifles" weaponList={rifleList} selectedValueChange={handleSelectChange} />
+            <DropDown id="Snipers" weaponList={sniperList} selectedValueChange={handleSelectChange} />
+            <DropDown id="Shotguns" weaponList={shotgunList} selectedValueChange={handleSelectChange} />
+            <DropDown id="Gloves" weaponList={glovesList} selectedValueChange={handleSelectChange} />
+            <DropDown id="Knifes" weaponList={knifeList} selectedValueChange={handleSelectChange} />
         </>
     );
 };
