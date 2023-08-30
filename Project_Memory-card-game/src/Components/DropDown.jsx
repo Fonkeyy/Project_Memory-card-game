@@ -6,13 +6,8 @@ import PropTypes from 'prop-types';
 // // import '../css/DropDown.css';
 
 const DropDown = ({ label, id, weaponList, selectedValueChange }) => {
-    // const [selectedValue, setSelectedValue] = useState('');
-
     const handleSelectChange = (e) => {
-        // setSelectedValue(e.target.value);
-        // selectedValueChange(selectedValue);
         selectedValueChange(e.target.value);
-        console.log(e.target.value);
     };
 
     return (

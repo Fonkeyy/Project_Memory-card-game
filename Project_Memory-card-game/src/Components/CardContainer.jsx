@@ -8,7 +8,7 @@ const API_URL = 'https://bymykel.github.io/CSGO-API/api/en/skins.json';
 const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, bestScore, weaponSelected }) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
-    const [weapon, setWeapon] = useState(null);
+    // // const [weapon, setWeapon] = useState(null);
 
     useEffect(() => {
         if (isGameOver || bestScore > 0) {
