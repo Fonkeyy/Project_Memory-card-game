@@ -1,18 +1,18 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
-
 import PropTypes from 'prop-types';
-
 import Card from './Card';
 
+const API_URL = 'https://bymykel.github.io/CSGO-API/api/en/skins.json';
+
 const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, bestScore }) => {
+    const [weaponType, setWeaponType] = useState('ak-47');
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
-    const [shouldResetSkinSet, setShouldResetSkinSet] = useState(false);
 
     useEffect(() => {
-        if (isGameOver === true || bestScore > 0) {
-            setShouldResetSkinSet(true);
+        if (isGameOver || bestScore > 0) {
+            setSkinSet(new Set());
         }
     }, [isGameOver, bestScore]);
 
@@ -20,38 +20,35 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://bymykel.github.io/CSGO-API/api/en/skins.json');
+                const response = await fetch(API_URL);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 const data = await response.json();
-                const weaponSkins = data.filter((skin) => skin.name.toLowerCase().includes('ak-47'));
+                const weaponSkins = data.filter((skin) => skin.name.toLowerCase().includes(weaponType));
                 setWeaponData(weaponSkins);
             } catch (error) {
                 console.error('Fetch error:', error);
             }
         };
         fetchData();
-    }, []);
+    });
 
     // * Randomly select skins in weaponData and set it to skinSet
     useEffect(() => {
-        if (shouldResetSkinSet) {
-            setSkinSet(new Set());
-            setShouldResetSkinSet(false);
-        } else if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
+        if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
             const randomNumber = getRandomInt(0, weaponData.length);
             const randomSkin = weaponData[randomNumber];
 
             setSkinSet((previousSkinSet) => {
-                if (!previousSkinSet.has(randomSkin)) {
-                    return new Set([...previousSkinSet, randomSkin]);
-                } else {
+                if (previousSkinSet.has(randomSkin)) {
                     return previousSkinSet;
+                } else {
+                    return new Set([...previousSkinSet, randomSkin]);
                 }
             });
         }
-    }, [weaponData, skinSet, cardNumberToRender, shouldResetSkinSet]);
+    }, [weaponData, skinSet, cardNumberToRender]);
 
     const handleCardClick = () => {
         const newShuffledArr = shuffleArr(skinSet);
@@ -75,7 +72,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
 
     return (
         <div id="card-container">
-            {Array.from(skinSet).map((skin) => (
+            {[...skinSet].map((skin) => (
                 <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} />
             ))}
         </div>
