@@ -5,10 +5,10 @@ import Card from './Card';
 
 const API_URL = 'https://bymykel.github.io/CSGO-API/api/en/skins.json';
 
-const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, bestScore }) => {
-    const [weaponType, setWeaponType] = useState('ak-47');
+const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, bestScore, weaponSelected }) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
+    const [weapon, setWeapon] = useState(null);
 
     useEffect(() => {
         if (isGameOver || bestScore > 0) {
@@ -25,14 +25,18 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 const data = await response.json();
-                const weaponSkins = data.filter((skin) => skin.name.toLowerCase().includes(weaponType));
-                setWeaponData(weaponSkins);
+                if (weaponSelected) {
+                    const weaponSkins = data.filter((skin) =>
+                        skin.name.toLowerCase().includes(weaponSelected.toLowerCase())
+                    );
+                    setWeaponData(weaponSkins);
+                }
             } catch (error) {
                 console.error('Fetch error:', error);
             }
         };
         fetchData();
-    }, [weaponType]);
+    }, [weaponSelected]);
 
     // * Randomly select skins in weaponData and set it to skinSet
     useEffect(() => {
@@ -85,6 +89,7 @@ CardContainer.propTypes = {
     gameOver: PropTypes.func,
     isGameOver: PropTypes.bool,
     bestScore: PropTypes.number,
+    weaponSelected: PropTypes.string,
 };
 
 export default CardContainer;
