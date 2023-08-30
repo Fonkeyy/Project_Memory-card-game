@@ -9,6 +9,8 @@ import Counter from './Components/Counter';
 // todo => Add Title
 // todo => Add choose weapon to play with
 // todo => Add difficulty level (number of items displayed)
+// todo => Fix why sometime there are duplicate cards
+
 function App() {
     let [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
@@ -28,11 +30,6 @@ function App() {
         setBestScore((prevBestScore) => Math.max(prevBestScore, score));
     };
 
-    // const handleGameOver = useCallback(() => {
-    //     setIsGameOver(true);
-    //     setBestScore(score);
-    //     setScore(0);
-    // }, []);
     return (
         <>
             <Counter label="Score" value={score} />
