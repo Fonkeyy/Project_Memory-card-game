@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 
 import '../css/Card.css';
 
-const Card = ({ skin, onClick }) => {
+const Card = ({ skin, onClick, gameOver }) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleOnClick = () => {
         if (isClicked) {
-            alert('Game Over');
+            gameOver();
         } else {
             setIsClicked(true);
             onClick();
@@ -31,6 +31,7 @@ const Card = ({ skin, onClick }) => {
 Card.propTypes = {
     skin: PropTypes.object.isRequired,
     onClick: PropTypes.func.isRequired,
+    gameOver: PropTypes.func,
 };
 
 export default Card;

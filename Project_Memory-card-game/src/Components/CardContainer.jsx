@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import Card from './Card';
 
-const CardContainer = ({ cardNumberToRender }) => {
+const CardContainer = ({ cardNumberToRender, upScore, gameOver }) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
     // const [shuffledArr, setShuffledArr] = useState(new Set(skinSet));
@@ -44,6 +44,7 @@ const CardContainer = ({ cardNumberToRender }) => {
     const handleCardClick = () => {
         const newShuffledArr = shuffleArr(skinSet);
         setSkinSet(newShuffledArr);
+        upScore();
     };
 
     // * Helpers functions
@@ -63,7 +64,7 @@ const CardContainer = ({ cardNumberToRender }) => {
     return (
         <div id="card-container">
             {Array.from(skinSet).map((skin) => (
-                <Card key={skin.id} skin={skin} onClick={handleCardClick} />
+                <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} />
             ))}
         </div>
     );
@@ -71,6 +72,8 @@ const CardContainer = ({ cardNumberToRender }) => {
 
 CardContainer.propTypes = {
     cardNumberToRender: PropTypes.number,
+    upScore: PropTypes.func,
+    gameOver: PropTypes.func,
 };
 
 export default CardContainer;
