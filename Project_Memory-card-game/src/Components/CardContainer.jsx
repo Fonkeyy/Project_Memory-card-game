@@ -32,7 +32,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
             }
         };
         fetchData();
-    });
+    }, [weaponType]);
 
     // * Randomly select skins in weaponData and set it to skinSet
     useEffect(() => {
@@ -51,7 +51,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
     }, [weaponData, skinSet, cardNumberToRender]);
 
     const handleCardClick = () => {
-        const newShuffledArr = shuffleArr(skinSet);
+        const newShuffledArr = shuffleArr([...skinSet]);
         setSkinSet(newShuffledArr);
         upScore();
     };
