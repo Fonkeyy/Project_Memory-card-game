@@ -5,10 +5,16 @@ import PropTypes from 'prop-types';
 
 import Card from './Card';
 
-const CardContainer = ({ cardNumberToRender, upScore, gameOver }) => {
+const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, bestScore }) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
-    // const [shuffledArr, setShuffledArr] = useState(new Set(skinSet));
+    const [shouldResetSkinSet, setShouldResetSkinSet] = useState(false);
+
+    useEffect(() => {
+        if (isGameOver === true || bestScore > 0) {
+            setShouldResetSkinSet(true);
+        }
+    }, [isGameOver, bestScore]);
 
     // * Fetch data from the API and set it to weaponData
     useEffect(() => {
@@ -30,16 +36,22 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver }) => {
 
     // * Randomly select skins in weaponData and set it to skinSet
     useEffect(() => {
-        if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
+        if (shouldResetSkinSet) {
+            setSkinSet(new Set());
+            setShouldResetSkinSet(false);
+        } else if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
             const randomNumber = getRandomInt(0, weaponData.length);
             const randomSkin = weaponData[randomNumber];
-            if (!skinSet.has(randomSkin)) {
-                setSkinSet((previousSkinSet) => new Set([...previousSkinSet, randomSkin]));
-            } else {
-                return;
-            }
+
+            setSkinSet((previousSkinSet) => {
+                if (!previousSkinSet.has(randomSkin)) {
+                    return new Set([...previousSkinSet, randomSkin]);
+                } else {
+                    return previousSkinSet;
+                }
+            });
         }
-    }, [weaponData, skinSet, cardNumberToRender]);
+    }, [weaponData, skinSet, cardNumberToRender, shouldResetSkinSet]);
 
     const handleCardClick = () => {
         const newShuffledArr = shuffleArr(skinSet);
@@ -49,7 +61,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver }) => {
 
     // * Helpers functions
     const getRandomInt = (min, max) => {
-        return Math.floor(Math.random() * (max - min)) + min;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
     const shuffleArr = (arr) => {
@@ -74,6 +86,8 @@ CardContainer.propTypes = {
     cardNumberToRender: PropTypes.number,
     upScore: PropTypes.func,
     gameOver: PropTypes.func,
+    isGameOver: PropTypes.bool,
+    bestScore: PropTypes.number,
 };
 
 export default CardContainer;
