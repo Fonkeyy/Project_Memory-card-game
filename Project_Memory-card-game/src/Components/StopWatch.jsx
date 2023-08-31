@@ -4,8 +4,9 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import '../css/StopWatch.css';
+import { formatTime } from '../helpingFunctions';
 
-const StopWatch = ({ isGameOver }) => {
+const StopWatch = ({ isGameOver, gameOver }) => {
     const [elapsedTime, setElapsedTime] = useState(0);
 
     useEffect(() => {
@@ -17,18 +18,13 @@ const StopWatch = ({ isGameOver }) => {
             }, 10);
         } else {
             clearInterval(stopWatch);
+            gameOver(elapsedTime);
         }
 
         return () => {
             clearInterval(stopWatch);
         };
-    }, [isGameOver]);
-
-    const formatTime = (time) => {
-        const seconds = Math.floor((time % 60000) / 1000);
-        const milliseconds = time % 1000;
-        return `${seconds < 10 ? '0' : ''}${seconds}.${milliseconds}`;
-    };
+    }, [isGameOver, elapsedTime, gameOver]);
 
     return (
         <div className="stopWatch">
@@ -39,6 +35,7 @@ const StopWatch = ({ isGameOver }) => {
 
 StopWatch.propTypes = {
     isGameOver: PropTypes.bool.isRequired,
+    gameOver: PropTypes.func.isRequired,
 };
 
 export default StopWatch;
