@@ -46,7 +46,9 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
             while (skinsToAdd.size < cardNumberToRender - skinSet.size) {
                 const randomNumber = getRandomInt(0, weaponData.length);
                 const randomSkin = weaponData[randomNumber];
-                skinsToAdd.add(randomSkin);
+                if (randomSkin !== undefined) {
+                    skinsToAdd.add(randomSkin);
+                }
             }
             setSkinSet((previousSkinSet) => new Set([...previousSkinSet, ...skinsToAdd]));
         }
@@ -72,6 +74,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
         return shuffledArray;
     };
 
+    console.log(skinSet);
     return (
         <div id="card-container">
             {skinSet.size === cardNumberToRender

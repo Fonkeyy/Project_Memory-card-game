@@ -42,7 +42,7 @@ function App() {
     return (
         <>
             <h1>Memory Counter Skins</h1>
-            <Countdown totalTime={60} isGameStarted={isGameStarted} />
+            <Countdown totalTime={60} isGameStarted={isGameStarted} isGameOver={isGameOver} />
             <ScoreContainer score={score} bestScore={bestScore} />
             <DropDownContainer selectedValueChange={handleSelectChange} />
             <CardContainer

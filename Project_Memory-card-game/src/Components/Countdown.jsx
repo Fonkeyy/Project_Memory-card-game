@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 // // import '../css/Countdown.css';
 
-const Countdown = ({ totalTime, isGameStarted }) => {
+const Countdown = ({ totalTime, isGameStarted, isGameOver }) => {
     const [time, setTime] = useState(totalTime);
 
     useEffect(() => {
@@ -13,12 +13,15 @@ const Countdown = ({ totalTime, isGameStarted }) => {
             const intervalId = setInterval(() => {
                 setTime((previousTime) => previousTime - 1);
             }, 1000);
+            if (isGameOver) {
+                clearInterval(intervalId);
+            }
 
             return () => {
                 clearInterval(intervalId);
             };
         }
-    }, [isGameStarted, setTime]);
+    }, [isGameStarted, setTime, isGameOver]);
 
     return <>{isGameStarted ? <p>Countdown: {time}</p> : <p>Countdown: {totalTime}</p>}</>;
 };
@@ -26,6 +29,7 @@ const Countdown = ({ totalTime, isGameStarted }) => {
 Countdown.propTypes = {
     totalTime: PropTypes.number.isRequired,
     isGameStarted: PropTypes.bool.isRequired,
+    isGameOver: PropTypes.bool.isRequired,
 };
 
 export default Countdown;
