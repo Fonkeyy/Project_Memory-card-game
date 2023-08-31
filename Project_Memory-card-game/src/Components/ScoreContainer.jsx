@@ -18,7 +18,7 @@ const ScoreContainer = ({ score, bestScore, bestTime }) => {
 
 ScoreContainer.propTypes = {
     score: PropTypes.number.isRequired,
-    bestScore: PropTypes.number.isRequired,
+    bestScore: PropTypes.number,
     bestTime: PropTypes.number.isRequired,
 };
 

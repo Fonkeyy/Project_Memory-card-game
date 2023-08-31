@@ -13,8 +13,7 @@ import StopWatch from './Components/StopWatch';
 function App() {
     let [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
-    // const [currentTime, setCurrentTime] = useState(0);
-    const [bestTime, setBestTime] = useState(0);
+    let [bestTime, setBestTime] = useState(Infinity);
     const [isGameOver, setIsGameOver] = useState(true);
     const [weapon, setWeapon] = useState(null);
     const [cardNumberToRender, setCardNumberToRender] = useState(6);
@@ -30,10 +29,8 @@ function App() {
     };
 
     const handleGameOver = (time) => {
-        // setCurrentTime(Number(formattedTime));
         handleSetBestTime(time);
         handleSetBestScore();
-        // setCurrentTime(0);
         setScore(0);
         setIsGameOver(true);
     };
@@ -42,21 +39,20 @@ function App() {
         setBestScore((prevBestScore) => Math.max(prevBestScore, score));
     };
 
+    useEffect(() => {
+        console.log('Best Time updated:', bestTime);
+    }, [bestTime]);
+
     const handleSetBestTime = (time) => {
-        setBestTime((prevBestTime) => {
-            console.log(prevBestTime);
-            console.log(typeof time);
-            const newBestTime = prevBestTime !== undefined ? prevBestTime : 0;
-            return Math.max(newBestTime, time);
-        });
+        if (time < bestTime) {
+            setBestTime(time);
+        }
     };
 
     const handleSelectChange = (e) => {
         setWeapon(e);
         setIsGameOver(false);
     };
-
-    console.log(bestTime);
 
     return (
         <>
