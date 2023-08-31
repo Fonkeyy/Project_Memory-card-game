@@ -1,12 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
-
 import PropTypes from 'prop-types';
 import DropDown from './DropDown';
 
-import { pistolList, smgList, rifleList, sniperList, shotgunList, glovesList, knifeList } from '../data';
+import '../css/DropDown.css';
 
-// // import '../css/DropDownContainer.css';
+import { pistolList, smgList, rifleList, sniperList, shotgunList, glovesList, knifeList } from '../data';
 
 const DropDownContainer = ({ selectedValueChange }) => {
     const handleSelectChange = (e) => {
@@ -14,7 +13,7 @@ const DropDownContainer = ({ selectedValueChange }) => {
     };
 
     return (
-        <>
+        <div className="drop-down-container">
             <label>Choose weapon: </label>
             <DropDown id="Pistols" weaponList={pistolList} selectedValueChange={handleSelectChange} />
             <DropDown id="SMGs" weaponList={smgList} selectedValueChange={handleSelectChange} />
@@ -23,7 +22,7 @@ const DropDownContainer = ({ selectedValueChange }) => {
             <DropDown id="Shotguns" weaponList={shotgunList} selectedValueChange={handleSelectChange} />
             <DropDown id="Gloves" weaponList={glovesList} selectedValueChange={handleSelectChange} />
             <DropDown id="Knifes" weaponList={knifeList} selectedValueChange={handleSelectChange} />
-        </>
+        </div>
     );
 };
 

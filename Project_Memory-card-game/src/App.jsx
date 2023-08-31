@@ -11,6 +11,7 @@ import ScoreContainer from './Components/ScoreContainer';
 // todo => Add Timer
 // todo => Add difficulty level (number of items displayed)
 // todo => Fix why sometime there are duplicate cards or not 6 cards
+// todo => Custom cursor?
 
 function App() {
     let [score, setScore] = useState(0);

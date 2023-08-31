@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
-// // import '../css/DropDown.css';
+import '../css/DropDown.css';
 
 const DropDown = ({ id, weaponList, selectedValueChange }) => {
     const handleSelectChange = (e) => {
@@ -11,8 +11,7 @@ const DropDown = ({ id, weaponList, selectedValueChange }) => {
     };
 
     return (
-        <>
-            <label htmlFor={id}></label>
+        <div className="drop-down">
             <select id={id} onChange={handleSelectChange}>
                 <option value="">{id}</option>
                 {weaponList.map((element) => (
@@ -21,7 +20,7 @@ const DropDown = ({ id, weaponList, selectedValueChange }) => {
                     </option>
                 ))}
             </select>
-        </>
+        </div>
     );
 };
 
