@@ -2,6 +2,6 @@ h1 {
     font-family: cs-regular;
     color: var(--orange);
     text-align: center;
-    margin: 2rem;
-    font-size: 2.5rem;
+    margin: 1rem auto 0.5rem;
+    font-size: 2.2rem;
 }

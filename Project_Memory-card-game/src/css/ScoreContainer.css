@@ -1,8 +1,12 @@
 .score-container {
+    width: fit-content;
+    margin: auto;
+    font-size: 1.2rem;
 }
 
 .score-counter {
     display: flex;
     flex-direction: row;
-    gap: 0.3rem;
+    justify-content: space-between;
+    gap: 0.6rem;
 }

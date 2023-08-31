@@ -1,10 +1,12 @@
 .drop-down-container {
-    display: flex;
-    flex-direction: row;
+    width: min-content;
+    margin: 1rem auto;
 }
 
 .drop-down-container > label {
     color: var(--orange);
+    width: min-content;
+    margin: auto;
 }
 
 select {
@@ -12,9 +14,18 @@ select {
     color: #fff;
     cursor: pointer;
     text-align: justify;
-    width: max-content;
+    min-width: 155px;
 }
 
 select option:first-child {
     text-align: center;
+}
+
+@media screen and (min-width: 481px) {
+    .drop-down-container {
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 769px) {
 }
