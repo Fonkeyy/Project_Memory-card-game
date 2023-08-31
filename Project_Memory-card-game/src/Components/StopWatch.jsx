@@ -8,7 +8,6 @@ import { formatTime } from '../helpingFunctions';
 
 const StopWatch = ({ isGameOver, gameOver }) => {
     const [elapsedTime, setElapsedTime] = useState(0);
-    console.log(elapsedTime);
     useEffect(() => {
         let stopWatch;
 

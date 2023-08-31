@@ -1,6 +1,6 @@
 .score-container {
     width: fit-content;
-    margin: auto;
+    margin: 0 auto 1rem;
     font-size: 1.2rem;
 }
 

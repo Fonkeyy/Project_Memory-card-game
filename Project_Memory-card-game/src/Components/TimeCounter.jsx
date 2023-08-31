@@ -8,7 +8,15 @@ import { formatTime } from '../helpingFunctions';
 const Counter = ({ label, value }) => {
     return (
         <div className="score-counter">
-            <label>{label}</label> <p>{formatTime(value)}</p>
+            {value !== Infinity ? (
+                <>
+                    <label>{label}</label> <p>{formatTime(value)}</p>
+                </>
+            ) : (
+                <>
+                    <label>{label}</label> <p>00.00</p>
+                </>
+            )}
         </div>
     );
 };

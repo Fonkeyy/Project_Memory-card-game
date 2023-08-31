@@ -8,7 +8,8 @@ import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
 import StopWatch from './Components/StopWatch';
 
-// todo => Add difficulty level (number of items displayed)
+// todo => See why weapon is selected twice
+// todo => Fix API call
 
 function App() {
     let [score, setScore] = useState(0);
@@ -16,7 +17,7 @@ function App() {
     let [bestTime, setBestTime] = useState(Infinity);
     const [isGameOver, setIsGameOver] = useState(true);
     const [weapon, setWeapon] = useState(null);
-    const [cardNumberToRender, setCardNumberToRender] = useState(6);
+    const [cardNumberToRender] = useState(12);
 
     useEffect(() => {
         if (score === cardNumberToRender) {
@@ -38,10 +39,6 @@ function App() {
     const handleSetBestScore = () => {
         setBestScore((prevBestScore) => Math.max(prevBestScore, score));
     };
-
-    useEffect(() => {
-        console.log('Best Time updated:', bestTime);
-    }, [bestTime]);
 
     const handleSetBestTime = (time) => {
         if (time < bestTime) {
@@ -65,7 +62,6 @@ function App() {
                 upScore={handleUpScore}
                 gameOver={handleGameOver}
                 isGameOver={isGameOver}
-                bestScore={bestScore}
                 weaponSelected={weapon}
             />
         </>
