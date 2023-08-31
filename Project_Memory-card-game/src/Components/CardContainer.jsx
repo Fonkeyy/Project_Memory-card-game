@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 import { API_URL } from '../data';
 import { getRandomInt, shuffleArr } from '../helpingFunctions';
+import ReplayBtn from './ReplayBtn';
 
-const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weaponSelected }) => {
+const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weaponSelected, replay }) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
 
@@ -62,6 +63,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
             {[...skinSet].map((skin) =>
                 skin ? <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} /> : null
             )}
+            <ReplayBtn replay={replay} />
         </div>
     );
 };

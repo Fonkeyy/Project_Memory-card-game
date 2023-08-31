@@ -8,10 +8,9 @@ import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
 import StopWatch from './Components/StopWatch';
 
-// todo => See why weapon is selected twice
 // todo => Fix API call
 // todo => Add commentary
-// todo => Add replay btn
+// todo => Delete ReplayBtn and add simple <button
 // todo => Add infos about how to play
 //todo => Responsive
 
@@ -56,8 +55,6 @@ function App() {
     };
 
     const handleSelectChange = (e) => {
-        // if (weapon === null) {
-        // }
         setWeapon(e);
         setIsGameOver(false);
     };
@@ -74,6 +71,7 @@ function App() {
                 gameOver={handleGameOver}
                 isGameOver={isGameOver}
                 weaponSelected={weapon}
+                replay={handleGameOver}
             />
         </>
     );
