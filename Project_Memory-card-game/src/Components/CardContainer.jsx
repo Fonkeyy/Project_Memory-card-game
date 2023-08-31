@@ -39,18 +39,16 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
     }, [weaponSelected]);
 
     // * Randomly select skins in weaponData and set it to skinSet
+
     useEffect(() => {
         if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
-            const randomNumber = getRandomInt(0, weaponData.length);
-            const randomSkin = weaponData[randomNumber];
-
-            setSkinSet((previousSkinSet) => {
-                if (previousSkinSet.has(randomSkin)) {
-                    return previousSkinSet;
-                } else {
-                    return new Set([...previousSkinSet, randomSkin]);
-                }
-            });
+            const skinsToAdd = new Set();
+            while (skinsToAdd.size < cardNumberToRender - skinSet.size) {
+                const randomNumber = getRandomInt(0, weaponData.length);
+                const randomSkin = weaponData[randomNumber];
+                skinsToAdd.add(randomSkin);
+            }
+            setSkinSet((previousSkinSet) => new Set([...previousSkinSet, ...skinsToAdd]));
         }
     }, [weaponData, skinSet, cardNumberToRender]);
 
