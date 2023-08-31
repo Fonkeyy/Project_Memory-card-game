@@ -23,6 +23,12 @@ const Countdown = ({ totalTime, isGameStarted, isGameOver }) => {
         }
     }, [isGameStarted, setTime, isGameOver]);
 
+    useEffect(() => {
+        if (isGameOver) {
+            setTime(totalTime);
+        }
+    }, [isGameOver, totalTime]);
+
     return <>{isGameStarted ? <p>Countdown: {time}</p> : <p>Countdown: {totalTime}</p>}</>;
 };
 

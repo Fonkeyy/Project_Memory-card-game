@@ -5,10 +5,17 @@ import Card from './Card';
 
 const API_URL = 'https://bymykel.github.io/CSGO-API/api/en/skins.json';
 
-const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, bestScore, weaponSelected }) => {
+const CardContainer = ({
+    cardNumberToRender,
+    upScore,
+    gameOver,
+    isGameOver,
+    isGameStarted,
+    bestScore,
+    weaponSelected,
+}) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
-    // // const [weapon, setWeapon] = useState(null);
 
     useEffect(() => {
         if (isGameOver || bestScore > 0) {
@@ -75,17 +82,15 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
     };
 
     console.log(skinSet);
-    return (
-        <div id="card-container">
-            {skinSet.size === cardNumberToRender
-                ? [...skinSet].map((skin) => (
-                      <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} />
-                  ))
-                : null}
-        </div>
-    );
-};
 
+    return isGameStarted ? (
+        <div id="card-container">
+            {[...skinSet].map((skin) =>
+                skin ? <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} /> : null
+            )}
+        </div>
+    ) : null;
+};
 CardContainer.propTypes = {
     cardNumberToRender: PropTypes.number,
     upScore: PropTypes.func,

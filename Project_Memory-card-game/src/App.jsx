@@ -28,6 +28,7 @@ function App() {
         handleSetBestScore();
         setScore(0);
         setIsGameOver(true);
+        setIsGameStarted(false);
     };
 
     const handleSetBestScore = () => {
@@ -37,6 +38,7 @@ function App() {
     const handleSelectChange = (e) => {
         setWeapon(e);
         setIsGameStarted(true);
+        setIsGameOver(false);
     };
 
     return (
@@ -49,6 +51,7 @@ function App() {
                 cardNumberToRender={6}
                 upScore={handleUpScore}
                 gameOver={handleGameOver}
+                isGameStarted={isGameStarted}
                 isGameOver={isGameOver}
                 bestScore={bestScore}
                 weaponSelected={weapon}
