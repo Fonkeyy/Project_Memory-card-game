@@ -3,11 +3,10 @@
     margin: 1rem auto;
 }
 
-.drop-down-container > label {
+.label-container {
     color: var(--orange);
-    width: min-content;
+    width: fit-content;
     margin: auto;
-    text-align: center;
 }
 
 select {

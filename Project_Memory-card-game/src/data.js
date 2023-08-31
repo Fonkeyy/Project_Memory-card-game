@@ -1,4 +1,6 @@
-export { pistolList, smgList, rifleList, sniperList, shotgunList, glovesList, knifeList };
+export { pistolList, smgList, rifleList, sniperList, shotgunList, glovesList, knifeList, API_URL };
+
+const API_URL = 'https://bymykel.github.io/CSGO-API/api/en/skins.json';
 
 const pistolList = [
     'Desert Eagle',

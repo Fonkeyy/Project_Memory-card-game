@@ -10,6 +10,10 @@ import StopWatch from './Components/StopWatch';
 
 // todo => See why weapon is selected twice
 // todo => Fix API call
+// todo => Add commentary
+// todo => Add replay btn
+// todo => Add infos about how to play
+//todo => Responsive
 
 function App() {
     let [score, setScore] = useState(0);
@@ -18,6 +22,10 @@ function App() {
     const [isGameOver, setIsGameOver] = useState(true);
     const [weapon, setWeapon] = useState(null);
     const [cardNumberToRender] = useState(12);
+
+    useEffect(() => {
+        console.log(weapon);
+    }, [weapon]);
 
     useEffect(() => {
         if (score === cardNumberToRender) {
@@ -34,6 +42,7 @@ function App() {
         handleSetBestScore();
         setScore(0);
         setIsGameOver(true);
+        setWeapon(null);
     };
 
     const handleSetBestScore = () => {
@@ -47,6 +56,8 @@ function App() {
     };
 
     const handleSelectChange = (e) => {
+        // if (weapon === null) {
+        // }
         setWeapon(e);
         setIsGameOver(false);
     };

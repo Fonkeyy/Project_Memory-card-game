@@ -1,10 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getRandomInt, shuffleArr } from '../helpingFunctions';
 import Card from './Card';
-
-const API_URL = 'https://bymykel.github.io/CSGO-API/api/en/skins.json';
+import { API_URL } from '../data';
+import { getRandomInt, shuffleArr } from '../helpingFunctions';
 
 const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weaponSelected }) => {
     const [weaponData, setWeaponData] = useState([]);
@@ -13,33 +12,29 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
     useEffect(() => {
         if (isGameOver) {
             setSkinSet(new Set());
-        }
-    }, [isGameOver]);
+        } else {
+            const fetchData = async () => {
+                try {
+                    const response = await fetch(API_URL);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    if (weaponSelected) {
+                        const weaponSkins = data.filter((skin) =>
+                            skin.name.toLowerCase().includes(weaponSelected.toLowerCase())
+                        );
+                        setWeaponData(weaponSkins);
+                        setSkinSet(new Set());
+                    }
+                } catch (error) {
+                    console.error('Fetch error:', error);
+                }
+            };
 
-    // * Fetch data from the API and set it to weaponData
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(API_URL);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                const data = await response.json();
-                if (weaponSelected) {
-                    const weaponSkins = data.filter((skin) =>
-                        skin.name.toLowerCase().includes(weaponSelected.toLowerCase())
-                    );
-                    setWeaponData(weaponSkins);
-                }
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-        fetchData();
-    }, [weaponSelected]);
-    useEffect(() => {
-        console.log(weaponSelected);
-    });
+            fetchData();
+        }
+    }, [weaponSelected, isGameOver]);
 
     // * Randomly select skins in weaponData and set it to skinSet
     useEffect(() => {
