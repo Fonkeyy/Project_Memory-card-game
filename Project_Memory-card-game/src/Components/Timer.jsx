@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
-// // import '../css/Countdown.css';
+import '../css/Timer.css';
 
-const Countdown = ({ totalTime, isGameOver }) => {
+const Timer = ({ totalTime, isGameOver }) => {
     const [time, setTime] = useState(totalTime);
 
     useEffect(() => {
@@ -26,12 +26,24 @@ const Countdown = ({ totalTime, isGameOver }) => {
         }
     }, [isGameOver, totalTime]);
 
-    return <>{isGameOver ? <p>Countdown: {totalTime}</p> : <p>Countdown: {time}</p>}</>;
+    return (
+        <div className="timer">
+            {isGameOver ? (
+                <p>
+                    Timer: <span>{totalTime}</span>
+                </p>
+            ) : (
+                <p>
+                    Timer: <span>{time}</span>
+                </p>
+            )}
+        </div>
+    );
 };
 
-Countdown.propTypes = {
+Timer.propTypes = {
     totalTime: PropTypes.number.isRequired,
     isGameOver: PropTypes.bool.isRequired,
 };
 
-export default Countdown;
+export default Timer;
