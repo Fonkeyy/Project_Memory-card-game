@@ -6,8 +6,8 @@ import './css/Card-container.css';
 import CardContainer from './Components/CardContainer';
 import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
+import Countdown from './Components/Countdown';
 
-// todo => Add Title
 // todo => Add Timer
 // todo => Add difficulty level (number of items displayed)
 // todo => Fix why sometime there are duplicate cards or not 6 cards
@@ -16,6 +16,7 @@ import ScoreContainer from './Components/ScoreContainer';
 function App() {
     let [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
+    const [isGameStarted, setIsGameStarted] = useState(false);
     const [isGameOver, setIsGameOver] = useState(false);
     const [weapon, setWeapon] = useState(null);
 
@@ -34,13 +35,14 @@ function App() {
     };
 
     const handleSelectChange = (e) => {
-        console.log(e);
         setWeapon(e);
+        setIsGameStarted(true);
     };
 
     return (
         <>
             <h1>Memory Counter Skins</h1>
+            <Countdown totalTime={60} isGameStarted={isGameStarted} />
             <ScoreContainer score={score} bestScore={bestScore} />
             <DropDownContainer selectedValueChange={handleSelectChange} />
             <CardContainer

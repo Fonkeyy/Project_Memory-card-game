@@ -74,9 +74,11 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, best
 
     return (
         <div id="card-container">
-            {[...skinSet].map((skin) => (
-                <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} />
-            ))}
+            {skinSet.size === cardNumberToRender
+                ? [...skinSet].map((skin) => (
+                      <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} />
+                  ))
+                : null}
         </div>
     );
 };
