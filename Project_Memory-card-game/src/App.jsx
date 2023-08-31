@@ -6,7 +6,7 @@ import './css/Card-container.css';
 import CardContainer from './Components/CardContainer';
 import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
-import Timer from './Components/Timer';
+import StopWatch from './Components/StopWatch';
 
 // todo => Add difficulty level (number of items displayed)
 
@@ -38,7 +38,7 @@ function App() {
     return (
         <>
             <h1>Memory Counter Skins</h1>
-            <Timer totalTime={60} isGameOver={isGameOver} />
+            <StopWatch isGameOver={isGameOver} />
             <ScoreContainer score={score} bestScore={bestScore} />
             <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />
             <CardContainer
