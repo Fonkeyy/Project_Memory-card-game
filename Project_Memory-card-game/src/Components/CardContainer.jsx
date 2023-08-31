@@ -95,6 +95,7 @@ CardContainer.propTypes = {
     cardNumberToRender: PropTypes.number,
     upScore: PropTypes.func,
     gameOver: PropTypes.func,
+    isGameStarted: PropTypes.bool,
     isGameOver: PropTypes.bool,
     bestScore: PropTypes.number,
     weaponSelected: PropTypes.string,
