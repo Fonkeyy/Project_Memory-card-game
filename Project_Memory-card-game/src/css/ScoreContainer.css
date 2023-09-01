@@ -3,7 +3,7 @@
 }
 
 .score-container .score-counter:first-child {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .score-counter {
@@ -11,4 +11,18 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 0.8rem;
+}
+
+@media screen and (min-width: 768px) {
+    .score-container {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        display: flex;
+        gap: 3rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .score-container {
+        font-size: clamp(1rem, 4vw, 1.8rem);
+    }
 }

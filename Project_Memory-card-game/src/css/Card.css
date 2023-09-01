@@ -1,7 +1,17 @@
 ul {
+    /* width: clamp(85px, 10vw, 20vw); */
+    /* width: minmax(85px, 240px); */
+    width: 120px;
     list-style: none;
     padding: 0;
     cursor: pointer;
+    margin: auto;
+    scale: 1;
+}
+
+ul:hover {
+    scale: 1.1;
+    transition: scale 0.1s ease-in-out;
 }
 
 img {
@@ -11,4 +21,28 @@ img {
 
 h2 {
     font-size: 1rem;
+}
+
+@media screen and (max-height: 800px) {
+    ul {
+        width: 60px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    ul {
+        width: 240px;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    ul {
+        width: 360px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
 }

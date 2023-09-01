@@ -1,0 +1,14 @@
+button {
+    margin-top: 2rem;
+    background-color: transparent;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: var(--orange);
+    color: var(--white);
+    border: 1px solid var(--white);
+    transition: color 0.2s ease-in-out, border 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}

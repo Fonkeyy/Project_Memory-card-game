@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../css/ScoreContainer.css';
+import '../css/ReplayBtn.css';
 
 const ReplayBtn = ({ replay }) => {
     return <button onClick={replay}>Replay</button>;
