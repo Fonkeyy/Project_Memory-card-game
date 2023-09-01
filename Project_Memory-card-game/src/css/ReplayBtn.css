@@ -1,4 +1,4 @@
-button {
+#replay-button {
     margin-top: 2rem;
     padding: 0.2rem 0.4rem;
     background-color: transparent;
@@ -7,7 +7,7 @@ button {
     border-radius: 8px;
 }
 
-button:hover {
+#replay-button:hover {
     background-color: var(--orange);
     color: var(--white);
     border: 1px solid var(--white);
@@ -15,14 +15,14 @@ button:hover {
 }
 
 @media screen and (min-width: 768px) {
-    button {
+    #replay-button {
         margin-top: 2.5rem;
         padding: 0.6rem 1.2rem;
         border: 2px solid var(--orange);
 
         font-size: 1.2rem !important;
     }
-    button:hover {
+    #replay-button:hover {
         border: 2px solid var(--white);
     }
 }

@@ -2,16 +2,19 @@
 import React, { useEffect, useState } from 'react';
 
 import './App.css';
-import './css/Card-container.css';
+import './css/CardContainer.css';
 
 import CardContainer from './Components/CardContainer';
 import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
 import StopWatch from './Components/StopWatch';
 import ReplayBtn from './Components/ReplayBtn';
+import InfoDialog from './Components/InfoDialog';
 
 // todo => Add commentary
-// todo => Add infos about how to play
+// todo => Fix svg transparency
+// todo => Responsive dialog
+// todo => check refactoring
 
 function App() {
     let [score, setScore] = useState(0);
@@ -60,7 +63,10 @@ function App() {
 
     return (
         <>
-            <h1>Memory Counter Skins</h1>
+            <div id="h1-container">
+                <h1>Memory Counter Skins</h1>
+                <InfoDialog />
+            </div>
             <StopWatch isGameOver={isGameOver} gameOver={handleGameOver} />
             <ScoreContainer score={score} bestScore={bestScore} bestTime={bestTime} isGameOver={isGameOver} />
             <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />

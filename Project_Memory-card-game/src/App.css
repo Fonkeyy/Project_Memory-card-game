@@ -5,6 +5,11 @@
     gap: 0.8rem;
 }
 
+#h1-container {
+    display: flex;
+    place-items: center;
+}
+
 h1 {
     font-family: cs-regular, Helvetica, Arial, Verdana, Tahoma, sans-serif;
     color: var(--orange);
