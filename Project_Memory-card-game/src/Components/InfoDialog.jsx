@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import '../css/InfoDialog.css';
 
-const InfoDialog = () => {
+const InfoDialog = ({ isGameOver }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const openDialog = () => {
@@ -16,18 +17,26 @@ const InfoDialog = () => {
 
     return (
         <div>
-            {!isOpen && <button id="info-dialog-btn" onClick={openDialog}></button>}
+            {isGameOver ? (
+                <>
+                    {!isOpen && <button id="info-dialog-btn" onClick={openDialog}></button>}
 
-            {isOpen && (
-                <dialog id="info-dialog" open>
-                    <p>Try to click on each cards no more than once, the faster you can...</p>
-                    <button id="close-svg" onClick={closeDialog}>
-                        Let's go
-                    </button>
-                </dialog>
-            )}
+                    {isOpen && (
+                        <dialog id="info-dialog" open>
+                            <p>Try to click on each cards no more than once, the faster you can...</p>
+                            <button id="close-svg" onClick={closeDialog}>
+                                Let&lsquo;s go
+                            </button>
+                        </dialog>
+                    )}
+                </>
+            ) : null}
         </div>
     );
+};
+
+InfoDialog.propTypes = {
+    isGameOver: PropTypes.bool.isRequired,
 };
 
 export default InfoDialog;

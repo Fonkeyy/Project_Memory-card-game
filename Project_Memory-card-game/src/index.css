@@ -10,7 +10,8 @@
 :root {
     --orange: rgb(227, 136, 34);
     --white: rgba(255, 255, 255, 0.87);
-    --bg-color: #242424;
+    --bg-color: rgba(0, 0, 0, 1);
+    /* --bg-color: #242424; */
 
     font-family: stratum2-medium, Helvetica, Arial, Verdana, Tahoma, sans-serif;
     line-height: 1.5;
@@ -56,6 +57,7 @@ button,
 textarea,
 select {
     font: inherit;
+    background-color: transparent;
 }
 p,
 h1,

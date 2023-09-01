@@ -1,29 +1,31 @@
 #info-dialog-btn {
-    background-image: url('../assets/svg/quote.svg'); /* Replace with your SVG file path */
-    background-size: cover; /* Adjust as needed */
-    background-repeat: no-repeat; /* Prevent repeating the background */
-    width: 25px;
-    height: 25px;
+    background-image: url('../assets/svg/quote.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
     scale: 1;
+    border: none;
+    margin-top: 10px;
 }
 
 #info-dialog-btn:hover {
     scale: 1.1;
-    transition: scale 0.2s ease-in-out;
+    transition: scale 0.1s ease-in-out;
 }
 
 #info-dialog {
-    background: transparent;
     width: fit-content;
     color: var(--white);
     border: 1px solid;
+    border-radius: 5px;
+    font-size: 0.7rem;
 
-    /* position: fixed; */
-    top: 2%;
-    left: 70%;
-    /* transform: translate(-50%, -50%); */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    /* background: rgba(0, 0, 0); */
+    background: rgba(0, 0, 0);
 }
 
 #close-svg {
@@ -32,7 +34,7 @@
     background-color: transparent;
     color: var(--orange);
     border: 1px solid var(--orange);
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 #close-svg:hover {
@@ -40,4 +42,11 @@
     color: var(--white);
     border: 1px solid var(--white);
     transition: color 0.2s ease-in-out, border 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+    #info-dialog-btn {
+        width: 25px;
+        height: 25px;
+    }
 }
