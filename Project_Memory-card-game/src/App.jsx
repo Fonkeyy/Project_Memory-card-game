@@ -8,6 +8,7 @@ import CardContainer from './Components/CardContainer';
 import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
 import StopWatch from './Components/StopWatch';
+import ReplayBtn from './Components/ReplayBtn';
 
 // todo => Fix API call
 // todo => Add commentary
@@ -73,6 +74,7 @@ function App() {
                 weaponSelected={weapon}
                 replay={handleGameOver}
             />
+            <ReplayBtn replay={handleGameOver} />
         </>
     );
 }
