@@ -49,4 +49,8 @@
         width: 25px;
         height: 25px;
     }
+
+    #info-dialog {
+        font-size: 1rem;
+    }
 }

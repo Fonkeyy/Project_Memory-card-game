@@ -12,11 +12,8 @@ import ReplayBtn from './Components/ReplayBtn';
 import InfoDialog from './Components/InfoDialog';
 
 // todo => Add commentary
-// todo => Fix svg transparency
-// todo => Responsive dialog
 // todo => check refactoring
 // todo => launch stopwatch when fetch is done
-// todo => fix background btn
 
 function App() {
     let [score, setScore] = useState(0);

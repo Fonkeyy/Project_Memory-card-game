@@ -1,4 +1,4 @@
-#replay-button {
+#replay-btn {
     margin-top: 2rem;
     padding: 0.2rem 0.4rem;
     background-color: transparent;
@@ -7,22 +7,22 @@
     border-radius: 8px;
 }
 
-#replay-button:hover {
+#replay-btn:hover {
     background-color: var(--orange);
-    color: var(--white);
+    color: var(--white) !important;
     border: 1px solid var(--white);
     transition: color 0.2s ease-in-out, border 0.2s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
-    #replay-button {
+    #replay-btn {
         margin-top: 2.5rem;
         padding: 0.6rem 1.2rem;
         border: 2px solid var(--orange);
 
         font-size: 1.2rem !important;
     }
-    #replay-button:hover {
-        border: 2px solid var(--white);
+    #replay-btn:hover {
+        border: 2px solid var(--white) !important;
     }
 }

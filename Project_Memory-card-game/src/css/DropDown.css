@@ -10,7 +10,7 @@
     margin: 0.8rem 0;
 }
 
-select {
+.drop-down > select {
     background-color: var(--bg-color);
     color: var(--white);
     cursor: pointer;
@@ -21,4 +21,10 @@ select {
 
 select option:first-child {
     text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .drop-down > select {
+        font-size: 1.1rem;
+    }
 }
