@@ -10,10 +10,8 @@ import ScoreContainer from './Components/ScoreContainer';
 import StopWatch from './Components/StopWatch';
 import ReplayBtn from './Components/ReplayBtn';
 
-// todo => Fix API call
 // todo => Add commentary
 // todo => Add infos about how to play
-//todo => Responsive
 
 function App() {
     let [score, setScore] = useState(0);
@@ -74,7 +72,7 @@ function App() {
                 weaponSelected={weapon}
                 replay={handleGameOver}
             />
-            <ReplayBtn replay={handleGameOver} />
+            {isGameOver ? null : <ReplayBtn replay={handleGameOver} />}
         </>
     );
 }

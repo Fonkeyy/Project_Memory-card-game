@@ -6,7 +6,7 @@
 }
 
 h1 {
-    font-family: cs-regular;
+    font-family: cs-regular, Helvetica, Arial, Verdana, Tahoma, sans-serif;
     color: var(--orange);
     padding: 0 2rem;
     font-size: clamp(1.5rem, 8vw, 3.6rem);

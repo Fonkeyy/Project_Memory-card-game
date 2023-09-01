@@ -27,6 +27,9 @@ h2 {
     ul {
         width: 60px;
     }
+    h2 {
+        font-size: 0.4rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -34,7 +37,7 @@ h2 {
         width: 240px;
     }
     h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 }
 
@@ -43,6 +46,6 @@ h2 {
         width: 360px;
     }
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 }

@@ -12,7 +12,7 @@
     --white: rgba(255, 255, 255, 0.87);
     --bg-color: #242424;
 
-    font-family: stratum2-medium;
+    font-family: stratum2-medium, Helvetica, Arial, Verdana, Tahoma, sans-serif;
     line-height: 1.5;
 
     color-scheme: light dark;
