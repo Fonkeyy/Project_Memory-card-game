@@ -1,20 +1,21 @@
 .drop-down-container {
-    width: min-content;
-    margin: 1rem auto;
+    /* width: clamp(155px, 50%, 600px); */
+    /* text-align: center; */
 }
 
 .label-container {
     color: var(--orange);
-    width: fit-content;
-    margin: auto;
+    text-align: center;
+    margin: 0.8rem 0;
 }
 
 select {
     background-color: var(--bg-color);
-    color: #fff;
+    color: var(--white);
     cursor: pointer;
     text-align: justify;
-    min-width: 155px;
+    width: clamp(180px, 30vw, 250px);
+    border-radius: 2px;
 }
 
 select option:first-child {
@@ -23,8 +24,6 @@ select option:first-child {
 
 @media screen and (min-width: 481px) {
     .drop-down-container {
-        display: flex;
-        flex-direction: row;
     }
 }
 @media screen and (min-width: 769px) {

@@ -9,14 +9,14 @@
 
 :root {
     --orange: rgb(227, 136, 34);
+    --white: rgba(255, 255, 255, 0.87);
     --bg-color: #242424;
 
     font-family: stratum2-medium;
     line-height: 1.5;
-    font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
+    color: var(--white);
     background-color: var(--bg-color);
 
     font-synthesis: none;
@@ -36,7 +36,8 @@
 }
 html,
 body {
-    height: 100%;
+    max-height: 100vh;
+    overflow: hidden;
 }
 body {
     line-height: 1.5;

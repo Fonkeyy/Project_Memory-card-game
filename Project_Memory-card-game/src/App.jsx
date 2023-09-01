@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import './App.css';
 import './css/Card-container.css';
+
 import CardContainer from './Components/CardContainer';
 import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
@@ -10,7 +11,6 @@ import StopWatch from './Components/StopWatch';
 
 // todo => Fix API call
 // todo => Add commentary
-// todo => Delete ReplayBtn and add simple <button
 // todo => Add infos about how to play
 //todo => Responsive
 

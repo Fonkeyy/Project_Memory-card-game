@@ -73,6 +73,7 @@ CardContainer.propTypes = {
     gameOver: PropTypes.func,
     isGameOver: PropTypes.bool,
     weaponSelected: PropTypes.string,
+    replay: PropTypes.func,
 };
 
 export default CardContainer;
