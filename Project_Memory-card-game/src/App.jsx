@@ -57,6 +57,10 @@ function App() {
 
     const handleSelectChange = (e) => {
         setWeapon(e);
+        // setIsGameOver(false);
+    };
+
+    const handleGameStart = () => {
         setIsGameOver(false);
     };
 
@@ -68,7 +72,11 @@ function App() {
             </div>
             <StopWatch isGameOver={isGameOver} gameOver={handleGameOver} />
             <ScoreContainer score={score} bestScore={bestScore} bestTime={bestTime} isGameOver={isGameOver} />
-            <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />
+            <DropDownContainer
+                selectedValueChange={handleSelectChange}
+                isGameOver={isGameOver}
+                gameStart={handleGameStart}
+            />
             <CardContainer
                 cardNumberToRender={cardNumberToRender}
                 upScore={handleUpScore}
