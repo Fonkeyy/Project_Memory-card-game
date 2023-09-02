@@ -5,7 +5,7 @@ import Card from './Card';
 import { API_URL } from '../data';
 import { getRandomInt, shuffleArr } from '../helpingFunctions';
 
-const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weaponSelected, gameStart }) => {
+const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weaponSelected, fetchDone }) => {
     const [weaponData, setWeaponData] = useState([]);
     const [skinSet, setSkinSet] = useState(new Set());
 
@@ -55,10 +55,9 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
         console.log(skinSet.size);
         console.log(cardNumberToRender);
         if (skinSet.size === cardNumberToRender) {
-            gameStart();
-            //  ? gameOver(false)
+            fetchDone();
         }
-    }, [skinSet, cardNumberToRender, gameStart]);
+    }, [skinSet, cardNumberToRender, fetchDone]);
 
     const handleCardClick = () => {
         const newShuffledArr = shuffleArr([...skinSet]);
@@ -80,7 +79,7 @@ CardContainer.propTypes = {
     gameOver: PropTypes.func,
     isGameOver: PropTypes.bool,
     weaponSelected: PropTypes.string,
-    gameStart: PropTypes.func,
+    fetchDone: PropTypes.func,
 };
 
 export default CardContainer;

@@ -20,12 +20,9 @@ function App() {
     const [bestScore, setBestScore] = useState(0);
     let [bestTime, setBestTime] = useState(Infinity);
     const [isGameOver, setIsGameOver] = useState(true);
+    const [isFetchDone, setIsFetchDone] = useState(false);
     const [weapon, setWeapon] = useState(null);
     const [cardNumberToRender] = useState(12);
-
-    useEffect(() => {
-        console.log(weapon);
-    }, [weapon]);
 
     useEffect(() => {
         if (score === cardNumberToRender) {
@@ -57,11 +54,7 @@ function App() {
 
     const handleSelectChange = (e) => {
         setWeapon(e);
-        // setIsGameOver(false);
-    };
-
-    const handleGameStart = () => {
-        setIsGameOver(false);
+        !setIsGameOver(false);
     };
 
     return (
@@ -70,13 +63,9 @@ function App() {
                 <h1>Memory Counter Skins</h1>
                 <InfoDialog isGameOver={isGameOver} />
             </div>
-            <StopWatch isGameOver={isGameOver} gameOver={handleGameOver} />
+            <StopWatch isFetchDone={isFetchDone} gameOver={handleGameOver} />
             <ScoreContainer score={score} bestScore={bestScore} bestTime={bestTime} isGameOver={isGameOver} />
-            <DropDownContainer
-                selectedValueChange={handleSelectChange}
-                isGameOver={isGameOver}
-                gameStart={handleGameStart}
-            />
+            <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />
             <CardContainer
                 cardNumberToRender={cardNumberToRender}
                 upScore={handleUpScore}
@@ -84,6 +73,7 @@ function App() {
                 isGameOver={isGameOver}
                 weaponSelected={weapon}
                 replay={handleGameOver}
+                fetchDone={() => setIsFetchDone(true)}
             />
             {isGameOver ? null : <ReplayBtn replay={handleGameOver} />}
         </>

@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 import '../css/StopWatch.css';
 import { formatTime } from '../helpingFunctions';
 
-const StopWatch = ({ isGameOver, gameOver }) => {
+const StopWatch = ({ isFetchDone, gameOver }) => {
     const [elapsedTime, setElapsedTime] = useState(0);
     useEffect(() => {
         let stopWatch;
 
-        if (!isGameOver) {
+        if (isFetchDone) {
             stopWatch = setInterval(() => {
                 setElapsedTime((prevElapsedTime) => prevElapsedTime + 10);
             }, 10);
@@ -26,7 +26,7 @@ const StopWatch = ({ isGameOver, gameOver }) => {
         return () => {
             clearInterval(stopWatch);
         };
-    }, [isGameOver, elapsedTime, gameOver]);
+    }, [isFetchDone, elapsedTime, gameOver]);
 
     return (
         <div className="stopWatch">
@@ -36,7 +36,7 @@ const StopWatch = ({ isGameOver, gameOver }) => {
 };
 
 StopWatch.propTypes = {
-    isGameOver: PropTypes.bool.isRequired,
+    isFetchDone: PropTypes.bool.isRequired,
     gameOver: PropTypes.func.isRequired,
 };
 
