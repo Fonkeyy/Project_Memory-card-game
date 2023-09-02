@@ -10,8 +10,10 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
     const [skinSet, setSkinSet] = useState(new Set());
 
     useEffect(() => {
+        const clearSkinSet = () => setSkinSet(new Set());
+
         if (isGameOver) {
-            setSkinSet(new Set());
+            clearSkinSet;
         } else {
             const fetchData = async () => {
                 try {
@@ -25,7 +27,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
                             skin.name.toLowerCase().includes(weaponSelected.toLowerCase())
                         );
                         setWeaponData(weaponSkins);
-                        setSkinSet(new Set());
+                        clearSkinSet;
                     }
                 } catch (error) {
                     console.error('Fetch error:', error);
@@ -38,22 +40,23 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
 
     // * Randomly select skins in weaponData and set it to skinSet
     useEffect(() => {
-        if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
-            const skinsToAdd = new Set();
-            while (skinsToAdd.size < cardNumberToRender - skinSet.size) {
-                const randomNumber = getRandomInt(0, weaponData.length);
-                const randomSkin = weaponData[randomNumber];
-                if (randomSkin !== undefined) {
-                    skinsToAdd.add(randomSkin);
+        const addRandomSkins = () => {
+            if (weaponData.length > 0 && skinSet.size < cardNumberToRender) {
+                const skinsToAdd = new Set();
+                while (skinsToAdd.size < cardNumberToRender - skinSet.size) {
+                    const randomNumber = getRandomInt(0, weaponData.length);
+                    const randomSkin = weaponData[randomNumber];
+                    if (randomSkin !== undefined) {
+                        skinsToAdd.add(randomSkin);
+                    }
                 }
+                setSkinSet((previousSkinSet) => new Set([...previousSkinSet, ...skinsToAdd]));
             }
-            setSkinSet((previousSkinSet) => new Set([...previousSkinSet, ...skinsToAdd]));
-        }
+        };
+        addRandomSkins();
     }, [weaponData, skinSet, cardNumberToRender]);
 
     useEffect(() => {
-        console.log(skinSet.size);
-        console.log(cardNumberToRender);
         if (skinSet.size === cardNumberToRender) {
             fetchDone();
         }

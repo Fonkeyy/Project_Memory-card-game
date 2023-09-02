@@ -12,8 +12,6 @@ import ReplayBtn from './Components/ReplayBtn';
 import InfoDialog from './Components/InfoDialog';
 
 // todo => Add commentary
-// todo => check refactoring
-// todo => launch stopwatch when fetch is done
 
 function App() {
     let [score, setScore] = useState(0);
