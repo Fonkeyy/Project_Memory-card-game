@@ -50,7 +50,7 @@ function App() {
 
     const handleSelectChange = (e) => {
         setWeapon(e);
-        !setIsGameOver(false);
+        setIsGameOver(false);
     };
 
     return (
