@@ -61,7 +61,7 @@ function App() {
                 <h1>Memory Counter Skins</h1>
                 <InfoDialog isGameOver={isGameOver} />
             </div>
-            <StopWatch isFetchDone={isFetchDone} gameOver={handleGameOver} />
+            <StopWatch isFetchDone={isFetchDone} gameOver={handleGameOver} isGameOver={isGameOver} />
             <ScoreContainer score={score} bestScore={bestScore} bestTime={bestTime} isGameOver={isGameOver} />
             <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />
             <CardContainer

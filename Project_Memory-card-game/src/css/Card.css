@@ -1,11 +1,7 @@
 ul {
-    /* width: clamp(85px, 10vw, 20vw); */
-    /* width: minmax(85px, 240px); */
-    width: 120px;
     list-style: none;
     padding: 0;
     cursor: pointer;
-    margin: auto;
     scale: 1;
 }
 
@@ -28,7 +24,7 @@ h2 {
         width: 60px;
     }
     h2 {
-        font-size: 0.4rem;
+        font-size: 0.3rem;
     }
 }
 
@@ -37,15 +33,12 @@ h2 {
         width: 240px;
     }
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
     ul {
         width: 360px;
-    }
-    h2 {
-        font-size: 1.6rem;
     }
 }
