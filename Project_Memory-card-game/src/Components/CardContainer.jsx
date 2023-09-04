@@ -13,7 +13,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
         const clearSkinSet = () => setSkinSet(new Set());
 
         if (isGameOver) {
-            clearSkinSet;
+            clearSkinSet();
         } else {
             const fetchData = async () => {
                 try {
@@ -27,7 +27,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
                             skin.name.toLowerCase().includes(weaponSelected.toLowerCase())
                         );
                         setWeaponData(weaponSkins);
-                        clearSkinSet;
+                        clearSkinSet();
                     }
                 } catch (error) {
                     console.error('Fetch error:', error);

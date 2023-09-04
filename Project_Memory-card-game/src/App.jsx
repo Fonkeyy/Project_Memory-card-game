@@ -11,8 +11,6 @@ import StopWatch from './Components/StopWatch';
 import ReplayBtn from './Components/ReplayBtn';
 import InfoDialog from './Components/InfoDialog';
 
-// todo => Add commentary
-
 function App() {
     let [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
