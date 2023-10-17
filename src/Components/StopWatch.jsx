@@ -27,11 +27,7 @@ const StopWatch = ({ isFetchDone, isGameOver, gameOver }) => {
         };
     }, [isFetchDone, elapsedTime, isGameOver, gameOver]);
 
-    return (
-        <div className="stopWatch">
-            <p>{formatTime(elapsedTime)}</p>
-        </div>
-    );
+    return <div className="stop-watch">{!isGameOver && <p>{formatTime(elapsedTime)}</p>}</div>;
 };
 
 StopWatch.propTypes = {

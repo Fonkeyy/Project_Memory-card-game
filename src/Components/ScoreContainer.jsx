@@ -8,9 +8,10 @@ const ScoreContainer = ({ score, bestScore, bestTime, isGameOver }) => {
 
     // * If window height < 850px setHeight(850)
     useEffect(() => {
+        console.log(window.innerHeight);
         function handleResize() {
-            if (window.innerHeight <= 850) {
-                setHeight(850);
+            if (window.innerHeight <= 600) {
+                setHeight(600);
             }
         }
 
@@ -26,7 +27,7 @@ const ScoreContainer = ({ score, bestScore, bestTime, isGameOver }) => {
     return (
         // * When the game is started and height < 850px hide the score container
         <>
-            {!isGameOver && height == 850 ? null : (
+            {!isGameOver && height == 600 ? null : (
                 <div className="score-container">
                     <Counter label="Score: " value={score} />
                     <Counter label="Best Score: " value={bestScore} />

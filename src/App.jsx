@@ -76,7 +76,7 @@ function App() {
                     replay={handleGameOver}
                     fetchDone={() => setIsFetchDone(true)}
                 />
-                {isGameOver ? null : <ReplayBtn replay={handleGameOver} />}
+                {!isGameOver && <ReplayBtn replay={handleGameOver} />}
             </main>
         </>
     );

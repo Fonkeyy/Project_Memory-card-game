@@ -17,17 +17,39 @@ const DropDownContainer = ({ selectedValueChange, isGameOver }) => {
             {isGameOver ? (
                 <div className="drop-down-container">
                     <p>Choose weapon</p>
-                    <DropDown id="Knifes" weaponList={knifeList} selectedValueChange={handleSelectChange} />
-                    <DropDown id="Pistols" weaponList={pistolList} selectedValueChange={handleSelectChange} />
-                    <DropDown id="SMGs" weaponList={smgList} selectedValueChange={handleSelectChange} />
-                    <DropDown id="Rifles" weaponList={rifleList} selectedValueChange={handleSelectChange} />
-                    <DropDown id="Snipers" weaponList={sniperList} selectedValueChange={handleSelectChange} />
-                    <DropDown
-                        id="Shotguns"
-                        weaponList={shotgunList}
-                        selectedValueChange={handleSelectChange}
-                    />
-                    <DropDown id="Gloves" weaponList={glovesList} selectedValueChange={handleSelectChange} />
+                    <div className="drop-down-wrapper">
+                        <DropDown
+                            id="Knifes"
+                            weaponList={knifeList}
+                            selectedValueChange={handleSelectChange}
+                        />
+                        <DropDown
+                            id="Pistols"
+                            weaponList={pistolList}
+                            selectedValueChange={handleSelectChange}
+                        />
+                        <DropDown id="SMGs" weaponList={smgList} selectedValueChange={handleSelectChange} />
+                        <DropDown
+                            id="Rifles"
+                            weaponList={rifleList}
+                            selectedValueChange={handleSelectChange}
+                        />
+                        <DropDown
+                            id="Snipers"
+                            weaponList={sniperList}
+                            selectedValueChange={handleSelectChange}
+                        />
+                        <DropDown
+                            id="Shotguns"
+                            weaponList={shotgunList}
+                            selectedValueChange={handleSelectChange}
+                        />
+                        <DropDown
+                            id="Gloves"
+                            weaponList={glovesList}
+                            selectedValueChange={handleSelectChange}
+                        />
+                    </div>
                 </div>
             ) : null}
         </>

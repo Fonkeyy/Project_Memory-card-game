@@ -1,15 +1,15 @@
-.stopWatch {
+.stop-watch {
     font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
 
 @media screen and (min-width: 768px) {
-    .stopWatch {
+    .stop-watch {
         /* font-size: clamp(1rem, 3vw, 1.4rem); */
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .stopWatch {
+    .stop-watch {
         /* font-size: clamp(1rem, 3vw, 1.6rem); */
     }
 }
