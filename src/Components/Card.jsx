@@ -15,14 +15,14 @@ const Card = ({ skin, onClick, gameOver }) => {
         }
     };
     return (
-        <ul>
+        <>
             {skin && (
-                <li key={skin.id} onClick={handleOnClick}>
+                <li key={skin.id} className="card-item" onClick={handleOnClick}>
                     <img src={skin.image} alt={skin.name} />
                     <h2>{skin.name}</h2>
                 </li>
             )}
-        </ul>
+        </>
     );
 };
 

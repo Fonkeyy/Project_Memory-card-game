@@ -15,7 +15,7 @@ const InfoDialog = ({ isGameOver }) => {
     };
 
     return (
-        <div>
+        <>
             {isGameOver ? (
                 <>
                     {!isOpen && (
@@ -35,7 +35,7 @@ const InfoDialog = ({ isGameOver }) => {
                     )}
                 </>
             ) : null}
-        </div>
+        </>
     );
 };
 

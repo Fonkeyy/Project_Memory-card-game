@@ -16,9 +16,7 @@ const DropDownContainer = ({ selectedValueChange, isGameOver }) => {
         <>
             {isGameOver ? (
                 <div className="drop-down-container">
-                    <div className="label-container">
-                        <label>Choose weapon</label>
-                    </div>
+                    <p>Choose weapon</p>
                     <DropDown id="Knifes" weaponList={knifeList} selectedValueChange={handleSelectChange} />
                     <DropDown id="Pistols" weaponList={pistolList} selectedValueChange={handleSelectChange} />
                     <DropDown id="SMGs" weaponList={smgList} selectedValueChange={handleSelectChange} />

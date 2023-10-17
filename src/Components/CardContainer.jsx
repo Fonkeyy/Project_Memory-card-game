@@ -68,11 +68,16 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
     };
 
     return isGameOver ? null : (
-        <div id="card-container">
-            {[...skinSet].map((skin) =>
-                skin ? <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} /> : null
-            )}
-        </div>
+        <>
+            <ul id="card-container">
+                {[...skinSet].map(
+                    (skin) =>
+                        skin && (
+                            <Card key={skin.id} skin={skin} onClick={handleCardClick} gameOver={gameOver} />
+                        )
+                )}
+            </ul>
+        </>
     );
 };
 CardContainer.propTypes = {

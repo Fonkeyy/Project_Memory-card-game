@@ -10,17 +10,16 @@
 }
 
 :root {
-    /* --orange: rgb(227, 136, 34); */
     --orange: rgb(251, 172, 24);
     --white: rgba(255, 255, 255, 0.87);
-    --bg-color: rgba(0, 0, 0, 1);
+    --bg-color: rgba(0, 0, 0, 0.5);
+    --black: rgba(0, 0, 0, 0.8);
 
     font-family: stratum2-medium, Helvetica, Arial, Verdana, Tahoma, sans-serif;
     line-height: 1.5;
 
     color-scheme: light dark;
-    color: var(--white);
-    /* background-color: var(--bg-color); */
+    color: var(--black);
 
     background-image: url('/src/assets/img/background.webp');
     background-position: center;

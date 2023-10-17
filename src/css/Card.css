@@ -2,11 +2,25 @@ ul {
     list-style: none;
     padding: 0;
     cursor: pointer;
-    scale: 1;
 }
 
-ul:hover {
-    scale: 1.1;
+.card-item {
+    backdrop-filter: blur(4px) saturate(180%);
+    -webkit-backdrop-filter: blur(4px) saturate(181%);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    border-radius: 5px;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    scale: 1;
+    color: var(--white);
+}
+
+.card-item:hover {
+    scale: 1.05;
     transition: scale 0.1s ease-in-out;
 }
 
@@ -16,29 +30,26 @@ img {
 }
 
 h2 {
-    font-size: 1rem;
-}
-
-@media screen and (max-height: 800px) {
-    ul {
-        width: 60px;
-    }
-    h2 {
-        font-size: 0.3rem;
-    }
+    font-size: 0.3rem;
 }
 
 @media screen and (min-width: 768px) {
-    ul {
-        width: 240px;
-    }
     h2 {
         font-size: 1.3rem;
     }
 }
 
-@media screen and (min-width: 1024px) {
-    ul {
-        width: 360px;
+@media screen and (min-height: 800px) {
+    h2 {
+        font-size: 1rem;
+    }
+
+    .card-item {
+        padding: 0.5rem;
+    }
+
+    img {
+        width: 70%;
+        margin: auto;
     }
 }

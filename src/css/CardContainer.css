@@ -1,4 +1,30 @@
 #card-container {
+    width: 90vw;
+    height: 100%;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    grid-template-rows: fit-content;
+    gap: 0.5rem;
+    place-items: center;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    #card-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+        width: 90vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #card-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+}
+/* #card-container {
     width: 80vw;
     padding: 0 2rem;
     display: grid;
@@ -19,4 +45,4 @@
     #card-container {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-}
+} */
