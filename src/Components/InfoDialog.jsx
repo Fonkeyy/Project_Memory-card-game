@@ -18,7 +18,12 @@ const InfoDialog = ({ isGameOver }) => {
         <div>
             {isGameOver ? (
                 <>
-                    {!isOpen && <button id="info-dialog-btn" onClick={openDialog}></button>}
+                    {!isOpen && (
+                        <button
+                            id="info-dialog-btn"
+                            aria-label="infos how to play"
+                            onClick={openDialog}></button>
+                    )}
 
                     {isOpen && (
                         <dialog id="info-dialog" open>

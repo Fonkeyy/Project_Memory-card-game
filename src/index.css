@@ -1,14 +1,17 @@
 @font-face {
     font-family: 'stratum2-medium';
     src: url('../src/assets/fonts/stratum2-medium-webfont.ttf') format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'cs-regular';
     src: url('../src/assets/fonts/cs_regular.ttf') format('truetype');
+    font-display: swap;
 }
 
 :root {
-    --orange: rgb(227, 136, 34);
+    /* --orange: rgb(227, 136, 34); */
+    --orange: rgb(251, 172, 24);
     --white: rgba(255, 255, 255, 0.87);
     --bg-color: rgba(0, 0, 0, 1);
 
