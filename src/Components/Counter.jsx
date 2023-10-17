@@ -4,7 +4,7 @@ import '../css/ScoreContainer.css';
 const Counter = ({ label, value }) => {
     return (
         <div className="score-counter">
-            <label>{label}</label> <p>{value}</p>
+            <p>{label}</p> <p>{value}</p>
         </div>
     );
 };

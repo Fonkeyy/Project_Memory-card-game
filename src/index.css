@@ -20,7 +20,7 @@
 
     color-scheme: light dark;
     color: var(--white);
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -37,9 +37,20 @@
 * {
     margin: 0;
 }
+
+#root {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+}
+
 html,
 body {
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
 }
 body {
@@ -73,4 +84,25 @@ h6 {
 #root,
 #__next {
     isolation: isolate;
+}
+
+.main-content {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.background-img {
+    background-image: url('/src/assets/img/background.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
 }
