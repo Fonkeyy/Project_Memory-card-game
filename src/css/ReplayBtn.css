@@ -1,6 +1,7 @@
 #replay-btn {
     padding: 0.2rem 0.4rem;
     background-color: transparent;
+    background-color: var(--bg-color);
     color: var(--orange);
     border: 1px solid var(--orange);
     border-radius: 8px;
