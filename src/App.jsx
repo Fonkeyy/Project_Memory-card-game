@@ -54,31 +54,23 @@ function App() {
 
     return (
         <>
-            <div className="main-content">
-                <div id="h1-container">
-                    <h1>Memory Counter Skins</h1>
-                    <InfoDialog isGameOver={isGameOver} />
-                </div>
-                <StopWatch isFetchDone={isFetchDone} gameOver={handleGameOver} isGameOver={isGameOver} />
-                <ScoreContainer
-                    score={score}
-                    bestScore={bestScore}
-                    bestTime={bestTime}
-                    isGameOver={isGameOver}
-                />
-                <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />
-                <CardContainer
-                    cardNumberToRender={cardNumberToRender}
-                    upScore={handleUpScore}
-                    gameOver={handleGameOver}
-                    isGameOver={isGameOver}
-                    weaponSelected={weapon}
-                    replay={handleGameOver}
-                    fetchDone={() => setIsFetchDone(true)}
-                />
-                {isGameOver ? null : <ReplayBtn replay={handleGameOver} />}
+            <div id="h1-container">
+                <h1>Memory Counter Skins</h1>
+                <InfoDialog isGameOver={isGameOver} />
             </div>
-            <div className="background-img"></div>
+            <StopWatch isFetchDone={isFetchDone} gameOver={handleGameOver} isGameOver={isGameOver} />
+            <ScoreContainer score={score} bestScore={bestScore} bestTime={bestTime} isGameOver={isGameOver} />
+            <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />
+            <CardContainer
+                cardNumberToRender={cardNumberToRender}
+                upScore={handleUpScore}
+                gameOver={handleGameOver}
+                isGameOver={isGameOver}
+                weaponSelected={weapon}
+                replay={handleGameOver}
+                fetchDone={() => setIsFetchDone(true)}
+            />
+            {isGameOver ? null : <ReplayBtn replay={handleGameOver} />}
         </>
     );
 }
