@@ -1,10 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
-import '../css/StopWatch.css';
 import { formatTime } from '../helpingFunctions';
+import '../css/StopWatch.css';
 
 const StopWatch = ({ isFetchDone, isGameOver, gameOver }) => {
     const [elapsedTime, setElapsedTime] = useState(0);

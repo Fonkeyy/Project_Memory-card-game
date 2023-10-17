@@ -1,8 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-
-// // import '../css/ScoreContainer.css';
 import Counter from './Counter';
 import TimeCounter from './TimeCounter';
 
