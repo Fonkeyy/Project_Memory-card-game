@@ -26,25 +26,11 @@ ul {
 }
 
 img {
-    width: 45%;
+    width: 50%;
 }
 
 h2 {
     font-size: 0.5rem;
-}
-
-@media screen and (min-height: 500px) {
-    .card-item {
-        padding: 0.2rem;
-    }
-
-    img {
-        width: 100%;
-    }
-
-    h2 {
-        font-size: 0.7rem;
-    }
 }
 
 @media screen and (min-height: 800px) {
@@ -55,11 +41,11 @@ h2 {
 
 @media screen and (min-width: 768px) and (min-height: 900px) {
     .card-item {
-        padding: 0.5rem;
+        padding: 0.2rem;
     }
 
     img {
-        width: 80%;
+        width: 70%;
     }
 
     h2 {
@@ -67,18 +53,8 @@ h2 {
     }
 }
 
-@media screen and (min-width: 768px) and (min-height: 768px) {
-    img {
-        width: 80%;
-    }
-}
-
 @media screen and (min-width: 1024px) and (min-height: 900px) {
-    .card-item {
-        padding: 0.5rem;
-    }
-
     img {
-        width: 50%;
+        width: 60%;
     }
 }

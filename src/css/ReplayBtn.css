@@ -16,12 +16,11 @@
     transition: color 0.2s ease-in-out, border 0.2s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-@media screen and (min-height: 800px) {
+@media screen and (min-height: 800px) and (min-width: 768px) {
     #replay-btn {
         margin-bottom: 1rem;
-        padding: 0.4rem 1rem;
         border: 2px solid var(--orange);
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
     #replay-btn:hover {
         border: 2px solid var(--white) !important;

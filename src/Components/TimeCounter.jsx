@@ -7,11 +7,11 @@ const Counter = ({ label, value }) => {
         <div className="score-counter">
             {value !== Infinity ? (
                 <>
-                    <label>{label}</label> <p>{formatTime(value)}</p>
+                    <p>{label}</p> <p>{formatTime(value)}</p>
                 </>
             ) : (
                 <>
-                    <label>{label}</label> <p>00.00</p>
+                    <p>{label}</p> <p>00.00</p>
                 </>
             )}
         </div>

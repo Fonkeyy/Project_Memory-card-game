@@ -1,3 +1,7 @@
 add random choice
 change dropdown select for cards
 add score history
+stop timer when 1min
+add game over modal
+
+add strict regex when creating weapon set (aug => slaughter)
