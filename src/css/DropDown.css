@@ -30,11 +30,12 @@
 
     cursor: pointer;
     text-align: justify;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 
     width: clamp(180px, 30vw, 250px);
     height: 100%;
     border-radius: 5px;
+    padding: 0.35rem 0rem;
 }
 
 .drop-down > select option {
