@@ -14,4 +14,4 @@ The Memory Card Game project is the second milestone in The Odin Project's React
 
 
 ## Live Demo
-Check out the [Live Demo](https://peaceful-fudge-8b8429.netlify.app) to see the CV Application in action.
+Check out the [Live Demo](https://peaceful-fudge-8b8429.netlify.app) to see the Memory Counter Skins game in action.
