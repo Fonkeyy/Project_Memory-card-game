@@ -1,10 +1,3 @@
-keyboard on card
-todo fix display score while playing
-add animation when best score reached
-add animation on cards between clicks
-add animation when score goes up
-up scale select drop down desktop?
-
-simplify layout => d flex place content
 add random choice
 change dropdown select for cards
+add score history

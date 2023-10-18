@@ -30,6 +30,7 @@ const CardContainer = ({ cardNumberToRender, upScore, gameOver, isGameOver, weap
                     }
                 } catch (error) {
                     console.error('Fetch error:', error);
+                    alert('Apologize, an error occurred, please try again');
                 }
             };
 

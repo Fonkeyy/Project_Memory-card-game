@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
-
-import './App.css';
-import './css/CardContainer.css';
-
 import CardContainer from './Components/CardContainer';
 import DropDownContainer from './Components/DropDownContainer';
 import ScoreContainer from './Components/ScoreContainer';
 import StopWatch from './Components/StopWatch';
 import ReplayBtn from './Components/ReplayBtn';
 import InfoDialog from './Components/InfoDialog';
+import './App.css';
+import './css/CardContainer.css';
 
 function App() {
     let [score, setScore] = useState(0);
@@ -60,12 +58,7 @@ function App() {
             </header>
             <main>
                 <StopWatch isFetchDone={isFetchDone} gameOver={handleGameOver} isGameOver={isGameOver} />
-                <ScoreContainer
-                    score={score}
-                    bestScore={bestScore}
-                    bestTime={bestTime}
-                    isGameOver={isGameOver}
-                />
+                <ScoreContainer score={score} bestScore={bestScore} bestTime={bestTime} />
                 <DropDownContainer selectedValueChange={handleSelectChange} isGameOver={isGameOver} />
                 <CardContainer
                     cardNumberToRender={cardNumberToRender}

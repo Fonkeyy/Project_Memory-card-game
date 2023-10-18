@@ -1,8 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
 import PropTypes from 'prop-types';
 import DropDown from './DropDown';
-
 import '../css/DropDown.css';
 
 import { pistolList, smgList, rifleList, sniperList, shotgunList, glovesList, knifeList } from '../data';

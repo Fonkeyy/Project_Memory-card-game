@@ -14,10 +14,21 @@ const Card = ({ skin, onClick, gameOver }) => {
             onClick();
         }
     };
+
+    const handleOnKeyDown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            handleOnClick();
+        }
+    };
     return (
         <>
             {skin && (
-                <li key={skin.id} className="card-item" onClick={handleOnClick}>
+                <li
+                    tabIndex={0}
+                    key={skin.id}
+                    className="card-item"
+                    onClick={handleOnClick}
+                    onKeyDown={handleOnKeyDown}>
                     <img src={skin.image} alt={skin.name} />
                     <h2>{skin.name}</h2>
                 </li>
