@@ -39,5 +39,6 @@
 @media screen and (min-width: 1024px) and (min-height: 700px) {
     #card-container {
         grid-template-columns: repeat(auto-fit, minmax(30vh, 1fr));
+        gap: 0.6rem;
     }
 }
